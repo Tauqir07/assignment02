@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Audio Player</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .audio-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 15px;
+            border: none;
+            background: #333;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button:hover {
+            background: #555;
+        }
+        input[type="range"] {
+            width: 200px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Custom Audio Player</h1>
+    <div class="audio-container">
+        <p>Now playing: task4.mp3</p>
+        <audio id="audioPlayer" autoplay>
+            <source src="task4.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        <br>
+        <button onclick="togglePlayPause()">Play/Pause</button>
+        <input type="range" id="volumeControl" min="0" max="1" step="0.1" onchange="adjustVolume(this.value)">
+        <progress id="progressBar" value="0" max="100"></progress>
+    </div>
+
+    <script>
+        const audio = document.getElementById("audioPlayer");
+        const progressBar = document.getElementById("progressBar");
+
+        function togglePlayPause() {
+            if (audio.paused) {
+                audio.play();
+            } else {
+                audio.pause();
+            }
+        }
+
+        function adjustVolume(value) {
+            audio.volume = value;
+        }
+
+        audio.ontimeupdate = function () {
+            progressBar.value = (audio.currentTime / audio.duration) * 100;
+        };
+    </script>
+</body>
+</html>
