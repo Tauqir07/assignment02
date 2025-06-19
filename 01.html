@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Video Player</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .video-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 15px;
+            border: none;
+            background: #333;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background: #555;
+        }
+        input[type="range"] {
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Custom Video Player</h1>
+    <div class="video-container">
+        <video id="videoPlayer" width="600" controls>
+            <source src="img.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <br>
+        <button onclick="togglePlayPause()">Play/Pause</button>
+        <input type="range" min="0" max="1" step="0.1" onchange="adjustVolume(this.value)">
+    </div>
+
+    <script>
+         var video = document.getElementById("videoPlayer");
+        function togglePlayPause() {
+             if (video.paused) {
+                video.play();
+            } else {
+                video.pause();
+            }
+        }
+        function adjustVolume(value) {
+            video.volume = value;
+        }
+    </script>
+</body>
+</html>
