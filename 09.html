@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Page Design</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header, footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .section {
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .section1 {
+            flex: 1;
+        }
+        .section2 {
+            flex: 1;
+            text-align: center;
+        }
+        .section2 img {
+            max-width: 100%;
+            height: auto;
+        }
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Responsive Page Design</h1>
+    </header>
+    <div class="container">
+        <div class="section section1">
+            <h2>What is Responsive Web Design?</h2>
+            <p>Responsive Web Design (RWD) is a web development approach that creates dynamic changes in a website’s appearance based on the screen size and orientation of the device being used to view it.</p>
+            <p>It ensures an optimal user experience across different devices, improves accessibility, and enhances SEO rankings.</p>
+        </div>
+        <div class="section section2">
+            <h2>Learn More</h2>
+            <img src="images.jpeg" alt="Responsive Design Example">
+            <p><a href="https://www.w3schools.com/css/css_rwd_intro.asp" target="_blank">Click here to learn more about RWD</a></p>
+        </div>
+    </div>
+    <footer>
+        <p>Contact us: email@example.com | Follow us on <a href="#">Twitter</a> & <a href="#">Facebook</a></p>
+    </footer>
+</body>
+</html>
